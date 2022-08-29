@@ -436,14 +436,14 @@ delQueue()：删">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    135
+                    475
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
                 
@@ -477,6 +477,14 @@ delQueue()：删">
 <li>size()：返回队列长度大小</li>
 <li>toString()：返回队列内容，要求按照String的形式</li>
 </ul>
+<p><strong>队列类实现</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Queue</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//队列属性</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">items</span> = [];</span><br><span class="line">    <span class="comment">//方法1：尾部添加</span></span><br><span class="line">    <span class="title class_">Queue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">enQueue</span> = <span class="keyword">function</span>(<span class="params">element</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法2：头部删除</span></span><br><span class="line">    <span class="title class_">Queue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">delQueue</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">shift</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法3：返回头部元素</span></span><br><span class="line">    <span class="title class_">Queue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">front</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法4：判断是否为空，返回Boolean</span></span><br><span class="line">    <span class="title class_">Queue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">isEmpty</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">length</span> == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法5：返回队列的长度</span></span><br><span class="line">    <span class="title class_">Queue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">length</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法6：返回队列内容，String形式</span></span><br><span class="line">    <span class="title class_">Queue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            str += <span class="variable language_">this</span>.<span class="property">items</span>[i] + <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>列表类实例化与测试</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对列类实例化</span></span><br><span class="line"><span class="keyword">var</span> queueObj = <span class="keyword">new</span> <span class="title class_">Queue</span>();</span><br><span class="line"><span class="comment">//给队列实例添加元素</span></span><br><span class="line">queueObj.<span class="title function_">enQueue</span>(<span class="number">1</span>);</span><br><span class="line">queueObj.<span class="title function_">enQueue</span>(<span class="number">2</span>);</span><br><span class="line">queueObj.<span class="title function_">enQueue</span>(<span class="number">3</span>);</span><br><span class="line"><span class="comment">//查看队列实例长度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(queueObj.<span class="title function_">size</span>());  <span class="comment">//3</span></span><br><span class="line"><span class="comment">//查看队列的内容，以String显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(queueObj.<span class="title function_">toString</span>());  <span class="comment">//&quot;1 2 3&quot;</span></span><br><span class="line"><span class="comment">//删除队列头部元素</span></span><br><span class="line">queueObj.<span class="title function_">delQueue</span>();  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(queueObj.<span class="title function_">toString</span>());  <span class="comment">//&quot;2 3&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>算法面试题——击鼓传花</strong></p>
+<p>​      <em>n个人围坐成一圈，然后从0开始数，设定某个num，当数到那个数字对应的人淘汰，</em></p>
+<p>​      <em>接着下一个继续数，继续淘汰，直到只剩下最后一个人</em>。返回这个人的名字和原本的位置（序号）。</p>
+<p>解题思路：对应（num-1）的人将其从队列中取出。</p>
 
             </div>
             <hr />
@@ -1195,7 +1203,7 @@ g_m \times W_m
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">689
+            <span class="white-color">1k
              丨            
           
 
@@ -1273,7 +1281,7 @@ g_m \times W_m
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">689</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">1k</span>
     </div>
 </footer>
 
