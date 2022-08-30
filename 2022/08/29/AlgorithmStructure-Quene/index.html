@@ -15,12 +15,15 @@
 队列类方法的两种实现
 
 基于数组实现
+
 基于链表实现
+
 
 队列常用的方法
 
 enQueue(element)：队列添加新的元素
-delQueue()：删">
+
+delQueue(">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -108,7 +111,7 @@ delQueue()：删">
 
 
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
 
@@ -436,14 +439,14 @@ delQueue()：删">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    475
+                    467
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    1 Min
                 </div>
                 
                 
@@ -462,28 +465,79 @@ delQueue()：删">
                 <p><strong>队列</strong></p>
 <p>队列是一种先进先出（FIFO：first in first out）的线性表</p>
 <p><strong>图例</strong></p>
-<p><img src="/2022/08/29/AlgorithmStructure-Quene/00_web\blog\source\_posts\AlgorithmStructure-Quene\queue1.png" alt></p>
+<p><img src="/2022/08/29/AlgorithmStructure-Quene/queue1.png" alt></p>
 <p><strong>队列类方法的两种实现</strong></p>
 <ul>
-<li>基于数组实现</li>
-<li>基于链表实现</li>
+<li><p>基于数组实现</p>
+</li>
+<li><p>基于链表实现</p>
+</li>
 </ul>
 <p><strong>队列常用的方法</strong></p>
 <ul>
-<li>enQueue(element)：队列添加新的元素</li>
-<li>delQueue()：删除队列最前端的元素</li>
-<li>front()：返回队列最前端的元素（不对其进行任何操作）</li>
-<li>isEmpty()：判断队列是否为空，返回值为Boolean类型，true or false</li>
-<li>size()：返回队列长度大小</li>
-<li>toString()：返回队列内容，要求按照String的形式</li>
+<li><p>enQueue(element)：队列添加新的元素</p>
+</li>
+<li><p>delQueue()：删除队列最前端的元素</p>
+</li>
+<li><p>front()：返回队列最前端的元素（不对其进行任何操作）</p>
+</li>
+<li><p>isEmpty()：判断队列是否为空，返回值为Boolean类型，true or false</p>
+</li>
+<li><p>size()：返回队列长度大小</p>
+</li>
+<li><p>toString()：返回队列内容，要求按照String的形式</p>
+</li>
 </ul>
 <p><strong>队列类实现</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">function Queue() &#123;</span><br><span class="line">    //队列属性</span><br><span class="line">    this.items = [];</span><br><span class="line">    //方法1：尾部添加</span><br><span class="line">    Queue.prototype.enQueue = function(element) &#123;</span><br><span class="line">        this.items.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">    //方法2：头部删除</span><br><span class="line">    Queue.prototype.delQueue = function() &#123;</span><br><span class="line">        return this.items.shift();</span><br><span class="line">    &#125;</span><br><span class="line">    //方法3：返回头部元素</span><br><span class="line">    Queue.prototype.front = function() &#123;</span><br><span class="line">        return this.items[0];</span><br><span class="line">    &#125;</span><br><span class="line">    //方法4：判断是否为空，返回Boolean</span><br><span class="line">    Queue.prototype.isEmpty = function() &#123;</span><br><span class="line">        return this.items.length == 0;</span><br><span class="line">    &#125;</span><br><span class="line">    //方法5：返回队列的长度</span><br><span class="line">    Queue.prototype.size = function() &#123;</span><br><span class="line">        return this.items.length;</span><br><span class="line">    &#125;</span><br><span class="line">    //方法6：返回队列内容，String形式</span><br><span class="line">    Queue.prototype.toString = function() &#123;</span><br><span class="line">        var str = &quot;&quot;;</span><br><span class="line">        for (let i=0; i&lt;this.items.length; i++) &#123;</span><br><span class="line">            str += this.items[i] + &quot; &quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        return str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//队列属性</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">//方法1：尾部添加</span>
+    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">enQueue</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//方法2：头部删除</span>
+    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">delQueue</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//方法3：返回头部元素</span>
+    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">front</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//方法4：判断是否为空，返回Boolean</span>
+    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">isEmpty</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//方法5：返回队列的长度</span>
+    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">size</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//方法6：返回队列内容，String形式</span>
+    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">toString</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            str <span class="token operator">+=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> str<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>列表类实例化与测试</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//对列类实例化</span><br><span class="line">var queueObj = new Queue();</span><br><span class="line">//给队列实例添加元素</span><br><span class="line">queueObj.enQueue(1);</span><br><span class="line">queueObj.enQueue(2);</span><br><span class="line">queueObj.enQueue(3);</span><br><span class="line">//查看队列实例长度</span><br><span class="line">console.log(queueObj.size());  //3</span><br><span class="line">//查看队列的内容，以String显示</span><br><span class="line">console.log(queueObj.toString());  //&quot;1 2 3&quot;</span><br><span class="line">//删除队列头部元素</span><br><span class="line">queueObj.delQueue();  </span><br><span class="line">console.log(queueObj.toString());  //&quot;2 3&quot;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//对列类实例化</span>
+<span class="token keyword">var</span> queueObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//给队列实例添加元素</span>
+queueObj<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+queueObj<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+queueObj<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//查看队列实例长度</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queueObj<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//3</span>
+<span class="token comment">//查看队列的内容，以String显示</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queueObj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"1 2 3"</span>
+<span class="token comment">//删除队列头部元素</span>
+queueObj<span class="token punctuation">.</span><span class="token function">delQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queueObj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"2 3"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>算法面试题——击鼓传花</strong></p>
-<p>​      <em>n个人围坐成一圈，然后从0开始数，设定某个num，当数到那个数字对应的人淘汰，</em></p>
-<p>​      <em>接着下一个继续数，继续淘汰，直到只剩下最后一个人</em>。返回这个人的名字和原本的位置（序号）。</p>
+<p>​      n个人围坐成一圈，然后从0开始数，设定某个num，当数到那个数字对应的人淘汰，</p>
+<p>​      接着下一个继续数，继续淘汰，直到只剩下最后一个人。返回这个人的名字和原本的位置（序号）。</p>
 <p>解题思路：对应（num-1）的人将其从队列中取出。</p>
 
             </div>
@@ -994,12 +1048,15 @@ delQueue()：删">
 队列类方法的两种实现
 
 基于数组实现
+
 基于链表实现
+
 
 队列常用的方法
 
 enQueue(element)：队列添加新的元素
-delQueue()：删
+
+delQueue(
                         
                     </div>
                     <div class="publish-info">
