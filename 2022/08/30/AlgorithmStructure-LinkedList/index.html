@@ -427,14 +427,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
                 
@@ -504,20 +504,20 @@
 <hr>
 </li>
 </ul>
-<h5 id="insert的方法有两种（当前位置插入元素，或在其后面插入元素）"><a href="#insert的方法有两种（当前位置插入元素，或在其后面插入元素）" class="headerlink" title="insert的方法有两种（当前位置插入元素，或在其后面插入元素）"></a>insert的方法有两种（当前位置插入元素，或在其后面插入元素）</h5><p>需要思考几个方面：</p>
+<h5 id="insert的方法有两种（当前位置插入元素，方法一是使用两个操作节点，方法二是使用一个操作节点）"><a href="#insert的方法有两种（当前位置插入元素，方法一是使用两个操作节点，方法二是使用一个操作节点）" class="headerlink" title="insert的方法有两种（当前位置插入元素，方法一是使用两个操作节点，方法二是使用一个操作节点）"></a>insert的方法有两种（当前位置插入元素，方法一是使用两个操作节点，方法二是使用一个操作节点）</h5><p>需要思考几个方面：</p>
 <p>1.位置越界[position小于0或是大于(index+1)，即length]</p>
-<p><strong>当前位置插入元素</strong>：考虑两种情况：</p>
-<p>a.position=0,在第一个节点的位置插入元素</p>
+<p><strong>Ⅰ.【方法一】</strong>：考虑两种情况：</p>
+<p><strong>a</strong>.position=0,在第一个节点的位置插入元素</p>
 <p>由于第一个节点，被this.head引用，所以直接通过操作新节点与this.head即可插入元素，步骤如下：</p>
 <p>①newNode.next = this.head; //将新节点的next引用到第一个节点（this.head此时为右值——引用值，也就是第一个节点的堆内存地址）</p>
 <p>②this.head=newNode;//将链表的head引用到新的节点，this.head代表的是在栈中的引用量，本来存储的是第一个节点的地址值，现在存储的是新节点的地址值。</p>
 <p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic1.png" alt="第一种情况:首节点插入"></p>
-<p>b.position=n,则在第n个节点插入元素（n&gt;0）</p>
+<p><strong>b</strong>.position=n,则在第n个节点插入元素（n&gt;0）</p>
 <p>①newNode.next = currentNode; </p>
 <p>②lastNode.next=newNode;</p>
 <p>需要记录当前操作节点和上一个操作节点，再将新节点引用当前节点，上一个节点引用新节点实现插入到当前位置的操作。</p>
-<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic2.png" alt="第二种情况：非首节点插入"></p>
-<p>insert方法（当前位置）实现代码如下所示：</p>
+<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic2.png" alt="第二种情况：非首节点插入【方法一】"></p>
+<p>insert方法（方法一）实现代码如下所示：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">LinkedList</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">insert</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> position</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">/*
@@ -566,6 +566,54 @@
 
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Ⅱ.【方法二】</strong></p>
+<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic3.png" alt="第二种情况：非首节点插入【方法二】"></p>
+<p>insert方法（方法二）实现代码如下所示：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">LinkedList</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">customInsert</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> position</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment">/*
+           1.考虑越界:(position&lt;0 或是position>index+1 or length)
+
+           2.为首位插入
+           操作的节点为this.head
+           因此实现的步骤：先将新节点引用到第一个节点；再将头结点引用到新的节点
+
+           3.非首位插入
+           操作的节点是lastNode
+           因此实现的步骤是：先将新节点引用到当前节点(通过上一个节点获得)；再将上一个节点引用新节点
+       */</span>
+      <span class="token comment">//1</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> position <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+           <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+       <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+           <span class="token comment">//2</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+               newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">;</span>
+               <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span>
+           <span class="token comment">//3</span>
+           <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+               <span class="token keyword">let</span> lastNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">;</span>
+               <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+               <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">++</span>index <span class="token operator">&lt;</span> position<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                   lastNode <span class="token operator">=</span> lastNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+               <span class="token punctuation">&#125;</span>
+               newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> lastNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+               lastNode<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span>
+       <span class="token punctuation">&#125;</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span><span class="token punctuation">;</span>
+       <span class="token comment">/*
+           释放操作引用值
+       */</span>
+       lastNode <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+       <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>insert方法的小结：</p>
+<p>1、在首节点位置插入与非首节点插入的操作不同，需要分情况考虑。</p>
+<p>2、涉及到位置的需要考虑越界，设备安全边界。</p>
+<p>3、使用当前和上一个操作节点引用值来插入新节点更好理解；但也可以只通过上一个节点的引用值操作。其中，节点能很好地找到下一个节点，但不容易获取到上一个节点，这也是单链表的特点。</p>
 
             </div>
             <hr />
@@ -1288,7 +1336,7 @@ delQueue(
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">2.1k
+            <span class="white-color">2.5k
              丨            
           
 
@@ -1366,7 +1414,7 @@ delQueue(
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">2.1k</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">2.5k</span>
     </div>
 </footer>
 
