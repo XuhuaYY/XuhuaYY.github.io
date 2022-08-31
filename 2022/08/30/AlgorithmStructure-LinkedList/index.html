@@ -8,13 +8,12 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="数组
-（优点）
+    <meta name="description" content="数组（优点）
 通过索引的方式直接访问每个元素，直观且快速。
 （缺点）
 
 连续固定内存存储的局限性。连续内存空间，当前数组不满足容量，会自动扩容（自动申请更大的内存，2倍内存，再将原数组中的元素copy过去）
-操作成本高。在数组开头或中间插">
+操作成本高。在数组开头或中间插入">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -451,21 +450,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>数组</strong></p>
-<p>（优点）</p>
+                <h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>（优点）</p>
 <p>通过索引的方式直接访问每个元素，直观且快速。</p>
 <p>（缺点）</p>
 <ul>
 <li>连续固定内存存储的局限性。连续内存空间，当前数组不满足容量，会自动扩容（自动申请更大的内存，2倍内存，再将原数组中的元素copy过去）</li>
 <li>操作成本高。在数组开头或中间插入元素，需要进行大量的元素位移。</li>
 </ul>
-<p><strong>链表</strong></p>
-<p>（特点）</p>
+<h5 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h5><p>（特点）</p>
 <ul>
-<li><p>链表由节点组成，每个节点包括一个元素和一个指向下一个节点的引用组成。</p>
-</li>
-<li><p>不在栈中存储，存储在堆中，所以是不连续的内存空间。</p>
-</li>
+<li>链表由节点组成，每个节点包括一个元素和一个指向下一个节点的引用组成。</li>
+<li>不在栈中存储，存储在堆中，所以是不连续的内存空间。</li>
 </ul>
 <p>（优点）</p>
 <ul>
@@ -478,44 +473,51 @@
 <li>节点不能通过索引的方式快速访问，需要从头开始访问，直到对应的节点。</li>
 <li>单链表可以轻松地访问下一个节点，但回到前一个节点是困难的。</li>
 </ul>
-<p><strong>单向链表的直观理解</strong></p>
-<p>将数组看成是流水线上的商品，看起来是连续的，固定的。</p>
+<h5 id="单向链表的直观理解"><a href="#单向链表的直观理解" class="headerlink" title="单向链表的直观理解"></a>单向链表的直观理解</h5><p>将数组看成是流水线上的商品，看起来是连续的，固定的。</p>
 <p>单向链表则是火车，由一个火车头（head），连接着数个车厢（node）组成。而每节车厢对应的有商品（item）和连接下一节车厢的挂钩（next）组成。</p>
-<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/train.png" alt></p>
-<p><strong>链表的数据结构</strong></p>
-<p>head属性指向链表的第一个节点。</p>
+<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/train.png" alt="比喻的形式"></p>
+<h5 id="链表的数据结构"><a href="#链表的数据结构" class="headerlink" title="链表的数据结构"></a>链表的数据结构</h5><p>head属性指向链表的第一个节点。</p>
 <p>每个节点对象中有两个属性，一个是元素（item），另一个是下一个节点的引用（next）。</p>
 <p>最后一个节点指向无意义的地址，也就是next设置为null</p>
-<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/LinkedList.png" alt="链表的数据结构"></p>
-<p><strong>链表中的常见操作</strong></p>
-<hr>
+<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/LinkedList.png" alt="严格的数据结构形式"></p>
+<h5 id="链表中的常见操作"><a href="#链表中的常见操作" class="headerlink" title="链表中的常见操作"></a>链表中的常见操作</h5><hr>
 <ul>
-<li>append(element) 向链表尾部添加一个新的项。</li>
-<li>insert(position, element) 向链表的特定位置插入一个新的项。</li>
-<li>get(position) 获取对应位置的元素。</li>
-<li>indexOf(element) 返回该元素对应在链表中的索引，若没有该元素返回-1。</li>
-<li>update(position, element) 更新某个位置元素值。</li>
-<li>removeAt(position) 从链表某个位置删除一个节点。</li>
-<li>remove(element) 从链表中查找某个元素，并删除该节点。</li>
-<li>isEmpty() 如果链表是否为空，空返回true，否则反之。</li>
-<li>size() 返回链表的节点（元素）个数。</li>
-<li>toString() 以String的方式依次返回链表中的元素。 重写Node原型中的toString()方法。</li>
-</ul>
+<li><p>append(element) 向链表尾部添加一个新的项。</p>
+</li>
+<li><p>insert(position, element) 向链表的特定位置插入一个新的项。</p>
+</li>
+<li><p>get(position) 获取对应位置的元素。</p>
+</li>
+<li><p>indexOf(element) 返回该元素对应在链表中的索引，若没有该元素返回-1。</p>
+</li>
+<li><p>update(position, element) 更新某个位置元素值。</p>
+</li>
+<li><p>removeAt(position) 从链表某个位置删除一个节点。</p>
+</li>
+<li><p>remove(element) 从链表中查找某个元素，并删除该节点。</p>
+</li>
+<li><p>isEmpty() 如果链表是否为空，空返回true，否则反之。</p>
+</li>
+<li><p>size() 返回链表的节点（元素）个数。</p>
+</li>
+<li><p>toString() 以String的方式依次返回链表中的元素。 重写Node原型中的toString()方法。</p>
 <hr>
-<h4 id="insert的方法有两种（当前位置插入元素，或在其后面插入元素）"><a href="#insert的方法有两种（当前位置插入元素，或在其后面插入元素）" class="headerlink" title="insert的方法有两种（当前位置插入元素，或在其后面插入元素）"></a>insert的方法有两种（当前位置插入元素，或在其后面插入元素）</h4><p>需要思考几个方面：</p>
+</li>
+</ul>
+<h5 id="insert的方法有两种（当前位置插入元素，或在其后面插入元素）"><a href="#insert的方法有两种（当前位置插入元素，或在其后面插入元素）" class="headerlink" title="insert的方法有两种（当前位置插入元素，或在其后面插入元素）"></a>insert的方法有两种（当前位置插入元素，或在其后面插入元素）</h5><p>需要思考几个方面：</p>
 <p>1.位置越界[position小于0或是大于(index+1)，即length]</p>
 <p><strong>当前位置插入元素</strong>：考虑两种情况：</p>
 <p>a.position=0,在第一个节点的位置插入元素</p>
 <p>由于第一个节点，被this.head引用，所以直接通过操作新节点与this.head即可插入元素，步骤如下：</p>
 <p>①newNode.next = this.head; //将新节点的next引用到第一个节点（this.head此时为右值——引用值，也就是第一个节点的堆内存地址）</p>
 <p>②this.head=newNode;//将链表的head引用到新的节点，this.head代表的是在栈中的引用量，本来存储的是第一个节点的地址值，现在存储的是新节点的地址值。</p>
-<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic1.png" alt="image-20220831140325135"></p>
+<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic1.png" alt="第一种情况:首节点插入"></p>
 <p>b.position=n,则在第n个节点插入元素（n&gt;0）</p>
 <p>①newNode.next = currentNode; </p>
 <p>②lastNode.next=newNode;</p>
 <p>需要记录当前操作节点和上一个操作节点，再将新节点引用当前节点，上一个节点引用新节点实现插入到当前位置的操作。</p>
-<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic2.png" alt="image-20220831141239839"></p>
-<p>实现代码如下所示：</p>
+<p><img src="/2022/08/30/AlgorithmStructure-LinkedList/insertPic2.png" alt="第二种情况：非首节点插入"></p>
+<p>insert方法（当前位置）实现代码如下所示：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">LinkedList</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">insert</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> position</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">/*
@@ -1066,13 +1068,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组
-（优点）
+                            数组（优点）
 通过索引的方式直接访问每个元素，直观且快速。
 （缺点）
 
 连续固定内存存储的局限性。连续内存空间，当前数组不满足容量，会自动扩容（自动申请更大的内存，2倍内存，再将原数组中的元素copy过去）
-操作成本高。在数组开头或中间插
+操作成本高。在数组开头或中间插入
                         
                     </div>
                     <div class="publish-info">
