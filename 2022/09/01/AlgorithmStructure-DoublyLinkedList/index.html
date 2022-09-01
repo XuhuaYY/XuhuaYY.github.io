@@ -429,7 +429,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    677
+                    676
                 </div>
                 
 
@@ -478,7 +478,7 @@
 <li><code>update(position, element)</code> 修改指定位置上的元素。</li>
 <li><code>removeAt(position)</code> 从链表中的删除指定位置的元素。</li>
 <li><code>remove(element)</code> 从链表删除指定的元素。</li>
-<li><code>isEmpty()</code> 如果链表中不包含任何元素，返回 <code>trun</code>，如果链表长度大于 0 则返回 <code>false</code>。</li>
+<li><code>isEmpty()</code> 如果链表中不包含任何元素，返回 <code>true</code>，如果链表长度大于 0 则返回 <code>false</code>。</li>
 <li><code>size()</code> 返回链表包含的元素个数，与数组的 <code>length</code> 属性类似。</li>
 <li><code>toString()</code> 由于链表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 <code>toString</code> 方法，让其只输出元素的值。</li>
 <li><code>forwardString()</code> 返回正向遍历节点字符串形式。</li>
@@ -497,7 +497,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="⭐append方法"><a href="#⭐append方法" class="headerlink" title="⭐append方法"></a>⭐append方法</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">DoublyLinkedList</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">append</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	<span class="token comment">/*
-		yi需要考虑是否为空链表，
+		①需要考虑是否为空链表，
 		"是"的操作方法：
 			尾节点引用第一个节点
 			头节点引用第一个节点
@@ -506,7 +506,7 @@
 			尾节点的next引用新节点
 			tail引用新节点
 		
-		最后由于添加了一个新的节点，因此长度add1
+		②最后由于添加了一个新的节点，因此长度add1
 	*/</span>	    
     newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
