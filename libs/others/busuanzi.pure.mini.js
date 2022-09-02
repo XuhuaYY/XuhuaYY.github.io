@@ -67,8 +67,3 @@ var bszCaller, bszTag;
         })
     }
 };
-
-来源: 夜法之书
-文章作者: 夜法之书
-文章链接: https://blog.17lai.site/posts/84b4059a/
-本文章著作权归作者所有，任何形式的转载都请注明出处。
