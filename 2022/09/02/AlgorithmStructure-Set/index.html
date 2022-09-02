@@ -4,26 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Js数据结构⭐队列与优先队列, Nb-boy">
+    <meta name="keywords" content="Js数据结构⭐集合, Nb-boy">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="队列
-队列是一种先进先出（FIFO：first in first out）的线性表
-图例
-
-队列类方法的两种实现
-
-基于数组实现
-
-基于链表实现
-
-
-队列常用的方法
-
-enQueue(element)：队列添加新的元素
-
-delQueue(">
+    <meta name="description" content="集合集合比较常见的实现方式是哈希表，这里使用的是JavaScript的Object进行封装。
+集合特点
+无序、不可重复的元素构成
+数学上集合是可重复的，计算机中集合是不可重复的。
+集合是特殊的数组
+元素无顺序，无重复
+无顺序：不能通过下标访">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,7 +22,7 @@ delQueue(">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Js数据结构⭐队列与优先队列 | Nb-boy</title>
+    <title>Js数据结构⭐集合 | Nb-boy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -295,13 +286,13 @@ delQueue(">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Js数据结构⭐队列与优先队列
+                        Js数据结构⭐集合
                     </div>
                 </div>
             </div>
@@ -423,7 +414,7 @@ delQueue(">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-08-29
+                    2022-09-02
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -437,14 +428,14 @@ delQueue(">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    467
+                    595
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
                 
@@ -460,83 +451,106 @@ delQueue(">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>队列</strong></p>
-<p>队列是一种先进先出（FIFO：first in first out）的线性表</p>
-<p><strong>图例</strong></p>
-<p><img src="/2022/08/29/AlgorithmStructure-Quene/queue1.png" alt></p>
-<p><strong>队列类方法的两种实现</strong></p>
-<ul>
-<li><p>基于数组实现</p>
-</li>
-<li><p>基于链表实现</p>
+                <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合比较常见的实现方式是哈希表，这里使用的是JavaScript的Object进行封装。</p>
+<h2 id="集合特点"><a href="#集合特点" class="headerlink" title="集合特点"></a>集合特点</h2><ul>
+<li>无序、不可重复的元素构成</li>
+<li>数学上集合是可重复的，计算机中集合是不可重复的。</li>
+<li>集合是特殊的数组<ul>
+<li>元素无顺序，无重复</li>
+<li>无顺序：不能通过下标访问；无重复：相同的元素在集合中是唯一的</li>
+</ul>
 </li>
 </ul>
-<p><strong>队列常用的方法</strong></p>
-<ul>
-<li><p>enQueue(element)：队列添加新的元素</p>
-</li>
-<li><p>delQueue()：删除队列最前端的元素</p>
-</li>
-<li><p>front()：返回队列最前端的元素（不对其进行任何操作）</p>
-</li>
-<li><p>isEmpty()：判断队列是否为空，返回值为Boolean类型，true or false</p>
-</li>
-<li><p>size()：返回队列长度大小</p>
-</li>
-<li><p>toString()：返回队列内容，要求按照String的形式</p>
-</li>
+<h2 id="封装集合"><a href="#封装集合" class="headerlink" title="封装集合"></a>封装集合</h2><p>ES6中的Set是一个集合类，我们重新封装一个Set类，了解集合的底层实现。</p>
+<h2 id="集合常见的操作"><a href="#集合常见的操作" class="headerlink" title="集合常见的操作"></a>集合常见的操作</h2><ul>
+<li><code>has(value)</code> 如果值在集合中，返回 <code>true</code>，否则返回<code>false</code>。<ul>
+<li><code>add(value)</code> 向集合添加一个新的项。</li>
 </ul>
-<p><strong>队列类实现</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//队列属性</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token comment">//方法1：尾部添加</span>
-    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">enQueue</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</li>
+<li><code>remove(value)</code> 从集合移除一个值。</li>
+<li><code>clear()</code> 移除集合中的所有项。</li>
+<li><code>size()</code> 返回集合所包含元素的数量。与数组的 <code>length</code> 属性类似。</li>
+<li><code>values()</code> 返回一个包含集合中所有值的数组。</li>
+<li>还有其他的方法，用的不多，这里不做封装。</li>
+</ul>
+<p><code>封装集合类代码如下：</code></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//使用Object类去包装Set</span>
+<span class="token keyword">function</span> <span class="token function">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//属性</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token comment">//has方法</span>
+    <span class="token class-name">Set</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">has</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token comment">//方法2：头部删除</span>
-    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">delQueue</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">//方法3：返回头部元素</span>
-    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">front</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">//方法4：判断是否为空，返回Boolean</span>
-    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">isEmpty</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">//方法5：返回队列的长度</span>
-    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">size</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">//方法6：返回队列内容，String形式</span>
-    <span class="token class-name">Queue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">toString</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            str <span class="token operator">+=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">//add方法</span>
+    <span class="token class-name">Set</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> str<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span>value<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>列表类实例化与测试</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//对列类实例化</span>
-<span class="token keyword">var</span> queueObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//给队列实例添加元素</span>
-queueObj<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-queueObj<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-queueObj<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//查看队列实例长度</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queueObj<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//3</span>
-<span class="token comment">//查看队列的内容，以String显示</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queueObj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"1 2 3"</span>
-<span class="token comment">//删除队列头部元素</span>
-queueObj<span class="token punctuation">.</span><span class="token function">delQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>queueObj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"2 3"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>算法面试题——击鼓传花</strong></p>
-<p>​      n个人围坐成一圈，然后从0开始数，设定某个num，当数到那个数字对应的人淘汰，</p>
-<p>​      接着下一个继续数，继续淘汰，直到只剩下最后一个人。返回这个人的名字和原本的位置（序号）。</p>
-<p>解题思路：对应（num-1）的人将其从队列中取出。</p>
+
+    <span class="token comment">//remove方法</span>
+    <span class="token class-name">Set</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">remove</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span>  <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">delete</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">[</span>value<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//clear方法</span>
+    <span class="token class-name">Set</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">clear</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//size方法</span>
+    <span class="token class-name">Set</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">size</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//values方法</span>
+    <span class="token class-name">Set</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">values</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>测试代码如下</code></p>
+<pre class="line-numbers language-javaScript" data-language="javaScript"><code class="language-javaScript">setObj &#x3D; new Set();
+setObj.add(1);
+setObj.add(2);
+setObj.add(3);
+console.log(setObj.values());	&#x2F;&#x2F;[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]
+console.log(setObj.size());		&#x2F;&#x2F;3
+setObj.remove(2);
+console.log(setObj.values());	&#x2F;&#x2F;[&#39;1&#39;, &#39;3&#39;]
+console.log(setObj.size());		&#x2F;&#x2F;2
+setObj.clear();
+console.log(setObj.values());	&#x2F;&#x2F;[]
+console.log(setObj.size());		&#x2F;&#x2F;0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="集合间的操作"><a href="#集合间的操作" class="headerlink" title="集合间的操作"></a>集合间的操作</h2><ul>
+<li>并集</li>
+</ul>
+<p>A集全部归为C集，B集和A集共同拥有的元素，不归于C集，否则归于C集合。最终C集合为A集和B集的并集。</p>
+<ul>
+<li>交集</li>
+</ul>
+<p>A集和B集共同拥有的元素，归于C集，该集合为A和B集合的交集。</p>
+<ul>
+<li>差集</li>
+</ul>
+<p>A集和B集共同拥有的元素，不归于C集，A集中的其他元素都归于C集。</p>
+<ul>
+<li>子集</li>
+</ul>
+<p>A集全部的元素都属于B集合，则A集是B集的子集。</p>
+<p><img src="/2022/09/02/AlgorithmStructure-Set/set1" alt="四种集合的操作"></p>
 
             </div>
             <hr />
@@ -695,9 +709,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Js数据结构⭐队列与优先队列》
+                    《Js数据结构⭐集合》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2022/08/29/AlgorithmStructure-Quene/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2022/09/02/AlgorithmStructure-Set/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Xuhua
             </a> is licensed under a
@@ -738,7 +752,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         repo: 'XuhuaYY.github.io',
         owner: 'Xuhua',
         admin: "Xuhua",
-        id: '2022/08/29/AlgorithmStructure-Quene/',
+        id: '2022/09/02/AlgorithmStructure-Set/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1022,39 +1036,42 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2022/08/30/AlgorithmStructure-LinkedList/">
+                <a href="/2022/09/02/AlgorithmStructure-Set/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Js数据结构⭐单链表">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Js数据结构⭐集合">
                         
-                        <span class="card-title">Js数据结构⭐单链表</span>
+                        <span class="card-title">Js数据结构⭐集合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组（优点）
-通过索引的方式直接访问每个元素，直观且快速。
-（缺点）
-
-连续固定内存存储的局限性。连续内存空间，当前数组不满足容量，会自动扩容（自动申请更大的内存，2倍内存，再将原数组中的元素copy过去）
-操作成本高。在数组开头或中间插入
+                            集合集合比较常见的实现方式是哈希表，这里使用的是JavaScript的Object进行封装。
+集合特点
+无序、不可重复的元素构成
+数学上集合是可重复的，计算机中集合是不可重复的。
+集合是特殊的数组
+元素无顺序，无重复
+无顺序：不能通过下标访
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-09-02
+                            </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -1065,28 +1082,31 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/27/Importance-Estimation-for-Neural-Network-Pruning/">
+                <a href="/2022/09/01/AlgorithmStructure-DoublyLinkedList/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="科研⭐Importance Estimation for Neural Network Pruning">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Js数据结构⭐双链表">
                         
-                        <span class="card-title">科研⭐Importance Estimation for Neural Network Pruning</span>
+                        <span class="card-title">Js数据结构⭐双链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Importance Estimation for Neural Network Pruning
-工作亮点
-Loss的误差来判断filter的重要性，使用Taylor展开来近似，最终转换为梯度与权重的相关式。
+                            前言：开学第一天，干巴爹~
+回顾单链表
+每次增删改查链表内容只能从头结点开始遍历（从头到尾）
+上一个节点有指向下一个节点的引用
+（缺点）轻松到达下一个节点，回前一个节点需要重新从头结点开始遍历
 
-g_m \times W_m
+重开双向链表
+增删改查的顺序既可以从头遍历到
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-09-01
                             </span>
                         <span class="publish-author">
                             
