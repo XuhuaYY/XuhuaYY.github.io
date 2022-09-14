@@ -4,16 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Js数据结构⭐搜索二叉树, Nb-boy">
+    <meta name="keywords" content="Js数据结构⭐二叉搜索树与红黑树, Nb-boy">
 
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
     <meta name="description" content="前言：开学之后，除了科研还多了很多杂事处理，学习进度变慢了~~
-删除操作分情况讨论
+二叉搜索树删除操作分情况讨论
 ①没有子节点
 检测current节点的left以及right都为null，则说明current节点没有子节点；
-检测current节点是否为root，也就是">
+检测current节点是否为roo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Js数据结构⭐搜索二叉树 | Nb-boy</title>
+    <title>Js数据结构⭐二叉搜索树与红黑树 | Nb-boy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -286,13 +286,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Js数据结构⭐搜索二叉树
+                        Js数据结构⭐二叉搜索树与红黑树
                     </div>
                 </div>
             </div>
@@ -428,14 +428,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    422
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    5 Min
                 </div>
                 
                 
@@ -452,7 +452,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>前言：开学之后，除了科研还多了很多杂事处理，学习进度变慢了~~</p>
-<h5 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h5><p>分情况讨论</p>
+<h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><h5 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h5><p>分情况讨论</p>
 <p>①没有子节点</p>
 <p>检测current节点的left以及right都为null，则说明current节点没有子节点；</p>
 <p>检测<code>current</code>节点是否为root，也就是该节点是否为根节点，是的话，将该root等于null，相当于将整个搜索二叉树清空。</p>
@@ -475,12 +475,92 @@
 <li>AVL树是平衡的，所以时间复杂度也是O(logN)</li>
 <li>每次插入/删除操作相对于红黑树效率都不高，整体效率不如红黑树</li>
 </ul>
-<p>红黑树</p>
-<ul>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><ul>
 <li>通过一些<code>特性</code>保持书的平衡</li>
 <li>平衡树，所以时间复杂度也是O(logN)</li>
 <li>插入/删除等操作，红黑树的性能要优于AVL树，所以平衡树的应用基本都是红黑树。</li>
 </ul>
+<h5 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h5><p>性质1.节点是红色或黑色</p>
+<p>性质2.根节点是黑色</p>
+<p>性质3.每个叶子节点都是黑色的空节点（NIL节点）</p>
+<p>性质4.每个红色节点的两个子节点都是黑色</p>
+<p>性质5.从任一节点到每个叶节点的所有路径都包含相同数目的黑色节点</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree.png" alt="图1：红黑树的结构"></p>
+<p>红黑色的最长路径不超过最短路径的两倍。</p>
+<p>通过推理，因为从性质4可以知道，黑节点组成的路径一定是最短的，又因为性质5，每条路径的黑色节点数是相同的，又因为根节点以及叶子节点数都是黑节点，当最短路径有N个黑色节点时，最长路径就有（2N-1）个节点，其中黑色节点为N个，红色节点为（N-1）个。</p>
+<p>红黑树的三种变换：</p>
+<ul>
+<li>变色</li>
+</ul>
+<p>1.为了重新符合红黑树的规则，尝试把红色节点变成黑色，或是把黑色节点变成红色。</p>
+<p>2.插入的新的节点都是红色节点：</p>
+<p>原因是：</p>
+<p>a.插入红色节点，很有可能不会违反红黑树任何规则。</p>
+<p>如下所示：在原来红黑树的基础上插入一个14的红色节点，此时仍符合红黑树的规则。</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree1.png" alt="图2：变色示例1"></p>
+<p>b.插入黑色节点，必然会导致一条路径上多了黑色节点，很难调整。</p>
+<p>如下所示，插入21的黑色节点，从根节点到叶子经过的节点数为4，其他的节点数为3，很难进行调整。（除非将21这个黑色节点变成红色节点）</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree2.png" alt="图3：变色示例2"></p>
+<p>c.插入红色节点，可能会导致出现红红相连的情况，这种情况可以通过颜色调换和旋转来调整。</p>
+<p>如下所示，插入21的红色节点，会出现两个红色节点，此时违反了红黑树的性质4.</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree3.png" alt="图4：变色示例3"></p>
+<ul>
+<li>左旋转</li>
+</ul>
+<p>以X为根逆时针旋转二叉搜索树：</p>
+<p>使得父节点原来的位置被自己的右子节点替代，</p>
+<p>左子节点被父节点替代，</p>
+<p>其他子节点保持不变，</p>
+<p>右子节点的左子节点连接到现在的左子节点的右子节点上，相当于平移。</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree4.png" alt="图5：左旋转示例1"></p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/00_web\blog\source\_posts\AlgorithmStructure-binarySearchTree\redBlackTree5.png" alt="图6：左旋转示例2"></p>
+<ul>
+<li>右旋转</li>
+</ul>
+<p>以X为根顺时针旋转二叉搜索树：</p>
+<p>使得父节点原来的位置被自己的左子节点替代，</p>
+<p>右子节点被父节点替代，</p>
+<p>其他子节点保持不变，</p>
+<p>左子节点的右子节点连接到现在的右子节点的左子节点上，相当于平移。</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree6.png" alt="图7：右旋转示例1"></p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree7.png" alt="图8：右旋转示例2"></p>
+<h5 id="红黑树的插入操作"><a href="#红黑树的插入操作" class="headerlink" title="红黑树的插入操作"></a>红黑树的插入操作</h5><p>Parent、GrandParent、Uncle</p>
+<p>N表示当前节点：Node</p>
+<p>P表示父节点：Parent</p>
+<p>G表示祖父节点：GrandPa</p>
+<p>U表示叔叔节点：Uncle </p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree8.png" alt="图9：定义四个特殊节点"></p>
+<h5 id="插入情况1"><a href="#插入情况1" class="headerlink" title="插入情况1"></a>插入情况1</h5><p>​        当插入的新节点N为根节点，则需要满足红黑树的性质2：根节点为黑色，又因为默认插入的新节点为红色，所以直接进行变色，将红色变成黑色即可。</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree9.png" alt="图10：新节点位于根上"></p>
+<h5 id="插入情况2"><a href="#插入情况2" class="headerlink" title="插入情况2"></a>插入情况2</h5><p>​        当插入的新节点N的父节点P为黑色节点，插入的新节点为红色，由于没有增加每条路径的黑色节点，所以此时不需要其他的任何变换。</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree10.png" alt="图11：新节点的父节点为黑色节点"></p>
+<h5 id="插入情况3"><a href="#插入情况3" class="headerlink" title="插入情况3"></a>插入情况3</h5><p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree11.png" alt="图12：父红叔红祖黑"></p>
+<p>当插入节点N的父节点为红，叔叔节点为红，而祖父节点为黑时；</p>
+<p>需要将这三者的红黑颜色对调，从而达到父黑叔黑祖红。</p>
+<p><code>但这只是考虑局部的情况，会出现问题，但是通过递归的方式可以解决</code></p>
+<p>试想一下，若祖父节点的父节点是红色，则需要递归去考虑后续的处理。</p>
+<h5 id="插入情况4"><a href="#插入情况4" class="headerlink" title="插入情况4"></a>插入情况4</h5><p>插入的节点为左子节点，对应的是父红叔黑祖黑</p>
+<p>操作分为两步：</p>
+<ol>
+<li>先变色，父节点与祖父节点交换颜色</li>
+<li>以祖父节点G为根进行右旋转</li>
+</ol>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree12.png" alt="图13：左子节点父红叔黑祖黑"></p>
+<h5 id="插入情况5"><a href="#插入情况5" class="headerlink" title="插入情况5"></a>插入情况5</h5><p>插入的节点为右子节点，对应的是父红叔黑祖黑</p>
+<p>操作分为两步，变换成情况4</p>
+<ol>
+<li><p>先以父节点P为根进行左旋转</p>
+</li>
+<li><p>再将变换后原父节点位置上的原子节点看成新的父节点P1，将P1的右子节点连接的整看作新的子节点N1</p>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/00_web\blog\source\_posts\AlgorithmStructure-binarySearchTree\redBlackTree13.png" alt="图14：右子节点父红叔黑祖黑"></p>
+</li>
+<li><p>此时重新考虑情况4即可，最后将N1展开。</p>
+</li>
+</ol>
+<p><img src="/2022/09/13/AlgorithmStructure-binarySearchTree/redBlackTree14.png" alt="图15：情况5转换为情况4处理"></p>
+<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><p>在二叉树上依次插入10、9、8、7…… 1</p>
+<p>考虑红黑树的情况。</p>
+<p>其中红黑树的删除操作，其实就是在二叉搜索树的基础上，添加上了红黑树插入操作，很复杂，不进行详细分析。</p>
 
             </div>
             <hr />
@@ -639,7 +719,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Js数据结构⭐搜索二叉树》
+                    《Js数据结构⭐二叉搜索树与红黑树》
                 </span> by
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2022/09/13/AlgorithmStructure-binarySearchTree/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -953,19 +1033,19 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Js数据结构⭐搜索二叉树">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Js数据结构⭐二叉搜索树与红黑树">
                         
-                        <span class="card-title">Js数据结构⭐搜索二叉树</span>
+                        <span class="card-title">Js数据结构⭐二叉搜索树与红黑树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             前言：开学之后，除了科研还多了很多杂事处理，学习进度变慢了~~
-删除操作分情况讨论
+二叉搜索树删除操作分情况讨论
 ①没有子节点
 检测current节点的left以及right都为null，则说明current节点没有子节点；
-检测current节点是否为root，也就是
+检测current节点是否为roo
                         
                     </div>
                     <div class="publish-info">
@@ -992,7 +1072,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Js数据结构⭐哈希表">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Js数据结构⭐哈希表">
                         
                         <span class="card-title">Js数据结构⭐哈希表</span>
                     </div>
@@ -1171,7 +1251,7 @@ hash基于数组实现，但有更多优势：
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">8.1k
+            <span class="white-color">9.2k
              丨            
           
 
@@ -1251,7 +1331,7 @@ hash基于数组实现，但有更多优势：
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">8.1k</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">9.2k</span>
     </div>
 </footer>
 
