@@ -9,7 +9,14 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="cssLeanrning-深入解析CSS | Nb-boy">
+    <meta name="description" content="第2章 相对单位1.相对单位与绝对单位
+绝对单位：px、不常用的绝对单位：mm、cm、in（英寸）、pt（点）、pc（派卡）
+
+1 in = 2.54cm = 25.4cm = 6pc=72pt = 96px
+
+相对单位：em和rem
+
+以">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -424,14 +431,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
                 
@@ -447,7 +454,97 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="第2章-相对单位"><a href="#第2章-相对单位" class="headerlink" title="第2章 相对单位"></a>第2章 相对单位</h2><h5 id="1-相对单位与绝对单位"><a href="#1-相对单位与绝对单位" class="headerlink" title="1.相对单位与绝对单位"></a>1.相对单位与绝对单位</h5><ul>
+<li>绝对单位：px、不常用的绝对单位：mm、cm、in（英寸）、pt（点）、pc（派卡）</li>
+</ul>
+<p>1 in = 2.54cm = 25.4cm = 6pc=72pt = 96px</p>
+<ul>
+<li>相对单位：em和rem</li>
+</ul>
+<p>以em为单位的属性值，会根据该属性所在元素对应的字号渲染到不同的计算值</p>
+<p>计算公式为：计算值=相对单位值*元素对应的字号</p>
+<h5 id="2-em与rem"><a href="#2-em与rem" class="headerlink" title="2.em与rem"></a>2.em与rem</h5><ul>
+<li>使用em定义字号</li>
+</ul>
+<p>​        对元素中的font-size属性使用em相对单位时，不是对自身进行1.2倍，而是<code>找到继承的字号</code>得到计算值，再应用到该元素字号。</p>
+<p>对大多数浏览器来说，默认字号为16px。medium关键字的值为16px</p>
+<ol>
+<li><p>em同时用于字号和其他属性</p>
+<p>本元素继承父元素的字体，本元素中的字体也会转变成计算值，之后再作为继承字体对象，作用于本元素的其他属性。</p>
+</li>
+<li><p>使用em指定多重嵌套元素的字号时，会出现字体缩小的问题。【可以使用1em的方式保证嵌套元素字号与父元素保持一致】</p>
+</li>
+<li><p>em用于内边距、外边距以及元素大小上很好，但用在字号上就会很复杂</p>
+</li>
+</ol>
+<ul>
+<li><p>使用rem定义字号</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/*相当于是针对顶级（根）节点设置一个伪类选择器root*/</span>
+<span class="token selector">:root</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/*rem。会以伪类选择器root中的字号作为父元素的字号进行继承，所以不会出现嵌套导致字体不断变化的情况*/</span>
+<span class="token selector">ul</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> .8rem<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<ul>
+<li>小结：rem设置字号，px设置边框，用em设置其他大多数属性：尤其是内边距、外边距和圆角（有时用百分比设置容器宽度）</li>
+</ul>
+<h5 id="3-停止像素思维"><a href="#3-停止像素思维" class="headerlink" title="3.停止像素思维"></a>3.停止像素思维</h5><p>反模式：全局重置font-size: 10px or 0.625em</p>
+<p>缺点：1、需要写重复的代码；2、没有摆脱像素思维</p>
+<p>解决办法：</p>
+<ol>
+<li>设置一个合理的默认字号</li>
+<li>构造响应式面板，用<code>媒体查询</code>修改根元素的字号</li>
+<li>缩放单个组件，通过rem设置该组件的字号，再通过em设置组件中其他属性值</li>
+</ol>
+<h5 id="4-视口的相对单位"><a href="#4-视口的相对单位" class="headerlink" title="4.视口的相对单位"></a>4.视口的相对单位</h5><p>​        除了em和rem都是相对于继承元素中的font-size定义的，但CSS还有其他的相对单位——<code>视口</code>的相对单位</p>
+<p>视口：对应的是网页可见部分的边框区域，但不包括上下的地址栏、工具栏和状态栏。</p>
+<ul>
+<li>vh(view height)：视口高度的1/100</li>
+<li>vw(view width)：视口宽度的1/100</li>
+<li>vmin(view min)：视口高宽最小值的1/100</li>
+<li>vmiax(view max)：视口高宽最大值的1/100</li>
+</ul>
+<p><img src="/2022/09/26/cssLeanrning-%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90CSS/2-1.png" alt="图1：高和宽均为视口宽度90%的蓝色元素块"></p>
+<ul>
+<li>使用vw定义字号</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/*
+对于1200px的桌面显示器而言，1200*0.02=24px的字号太大
+对于375px的iphone而言，375*0.02=7.5px的字号太小
+*/</span>
+<span class="token property">font-size</span><span class="token punctuation">:</span> 2vw<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以保留这种根据不同浏览器视口大小缩放的能力，但是缓和极端情况，可以使用CSS中的<code>calc()</code>函数。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/*
+	结合了em与vw两种单位定义，既保证了最小字号，又能根据浏览器视口平滑地缩放字体
+*/</span>
+<span class="token selector">:root</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>0.5em + 1vw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="5-无单位的数值和行高"><a href="#5-无单位的数值和行高" class="headerlink" title="5.无单位的数值和行高"></a>5.无单位的数值和行高</h5><p>支持无单位值的属性有line-height、z-index、font-weight</p>
+<p>line-height属性特殊，一般使用无单位的数值，因为它的继承方式不同。对于无符号的数值，后代元素继承的是无单位的值，对应的行高会随着元素文字属性的变化而变化。但换成em，则子代元素会继承计算值，则有可能出现意想不到的结果，因为其为固定值，字体大则紧凑，字体小而松垮。</p>
+<h5 id="6-自定义属性（CSS变量）"><a href="#6-自定义属性（CSS变量）" class="headerlink" title="6.自定义属性（CSS变量）"></a>6.自定义属性（CSS变量）</h5><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/*	声明
+--main-font并不是CSS中接受的属性，而是CSS变量，可以自定义，前缀有--以做区分。
+*/</span>
+<span class="token selector">:root</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">--main-font</span><span class="token punctuation">:</span> Helverica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token comment">/*	使用
+	var()函数接受第二个参数，指定了备用值
+*/</span>
+<span class="token selector">p</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--main-font<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>动态改变自定义属性；通过CSS样式表的方式改变自定义属性，则其对应的元素应用了CSS变量的属性会动态地发生变化。</li>
+<li>通过Js获取dom中的自定义属性，也可以重写该属性的值，起到一个动态修改的效果。</li>
+</ul>
+
             </div>
             <hr />
 
@@ -927,7 +1024,14 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            第2章 相对单位1.相对单位与绝对单位
+绝对单位：px、不常用的绝对单位：mm、cm、in（英寸）、pt（点）、pc（派卡）
+
+1 in = 2.54cm = 25.4cm = 6pc=72pt = 96px
+
+相对单位：em和rem
+
+以
                         
                     </div>
                     <div class="publish-info">
@@ -1134,7 +1238,7 @@ O(1)表示算法时间随着数据量的
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">10.6k
+            <span class="white-color">11.7k
              丨            
           
 
@@ -1214,7 +1318,7 @@ O(1)表示算法时间随着数据量的
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">10.6k</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">11.7k</span>
     </div>
 </footer>
 
